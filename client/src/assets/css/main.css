@@ -1,0 +1,245 @@
+/* --- Step 1: Import a Modern Font --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+/* --- Step 2: Define the Modern Color Palette & Root Styles --- */
+:root {
+  --background-color: #121212; /* Very dark grey, almost black */
+  --surface-color: rgba(30, 30, 45, 0.5); /* Semi-transparent dark surface */
+  --primary-color: #6f42c1; /* Electric Indigo */
+  --primary-glow: rgba(111, 66, 193, 0.7);
+  --text-color: #e0e0e0; /* Light grey for readability */
+  --text-secondary: #a0a0a0; /* Dimmer text for meta info */
+  --border-color: rgba(111, 66, 193, 0.2);
+  --backdrop-blur: 10px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  background-image:
+    radial-gradient(circle at 10% 10%, var(--primary-glow) 0, transparent 25%),
+    radial-gradient(circle at 90% 80%, var(--primary-glow) 0, transparent 25%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+h1, h2, h3 {
+  color: white;
+  text-shadow: 0 0 10px var(--primary-glow);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: white;
+}
+
+/* --- Step 3: Cool "Glassmorphism" Header --- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 1.5rem 2rem;
+  background: var(--surface-color);
+  backdrop-filter: blur(var(--backdrop-blur));
+  -webkit-backdrop-filter: blur(var(--backdrop-blur));
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo a {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.nav-links a {
+  margin-left: 2rem;
+  font-size: 1rem;
+}
+
+/* --- Step 4: Interactive Post Card --- */
+.post-card {
+  background: var(--surface-color);
+  backdrop-filter: blur(var(--backdrop-blur));
+  -webkit-backdrop-filter: blur(var(--backdrop-blur));
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 0 30px var(--primary-glow);
+  border-color: var(--primary-color);
+}
+
+.post-card h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.75rem;
+}
+
+.post-card p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.post-card a {
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+/* --- Step 5: Styled Blog Post Content --- */
+.post-detail-content {
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.post-detail-content h1,
+.post-detail-content h2,
+.post-detail-content h3 {
+  margin-top: 2em;
+  margin-bottom: 0.75em;
+}
+
+.post-detail-content code {
+  background-color: #282c34; /* Atom One Dark */
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.post-detail-content pre {
+  background-color: #282c34;
+  border: 1px solid var(--border-color);
+  padding: 1em;
+  border-radius: 8px;
+  overflow-x: auto;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* --- Step 6: Modern Forms --- */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 1rem;
+  background-color: #1e1e1e;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-color);
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+/* --- Step 7: Skeleton Loader Styles --- */
+.post-card-skeleton {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.skeleton-line {
+  height: 20px;
+  border-radius: 4px;
+  background-color: #333;
+  background-image: linear-gradient(to right, #2c2c3a 0%, #3a3a4a 20%, #2c2c3a 40%, #2c2c3a 100%);
+  background-repeat: no-repeat;
+  background-size: 2000px 100%;
+  animation: shimmer 2s infinite linear;
+  margin-bottom: 1rem;
+}
+
+.skeleton-title {
+  width: 60%;
+  height: 28px;
+  margin-bottom: 1.5rem;
+}
+
+.skeleton-text {
+  width: 100%;
+}
+
+.skeleton-text-short {
+  width: 80%;
+}
+.btn-logout {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 2rem;
+  transition: color 0.3s ease;
+}
+
+.btn-logout:hover {
+  color: white;
+}

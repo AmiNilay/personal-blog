@@ -1,0 +1,8 @@
+{
+  "short_name": "AIML Blog",
+  "name": "AIML Journal | A Developer's Journey",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#121212",
+  "background_color": "#121212"
+}
