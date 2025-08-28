@@ -10,16 +10,19 @@ const {
   getPostComments,
   createPostComment,
 } = require('../controllers/postController');
-const { protect } = require('../middleware/authMiddleware'); // <-- Import the lock
+const { protect } = require('../middleware/authMiddleware');
 
-// --- PUBLIC ROUTES (Anyone can access these) ---
-router.route('/').get(getPosts);
-router.route('/tag/:tagName').get(getPostsByTag);
+// --- PUBLIC ROUTES ---
+// ANYONE can get all posts or a single post.
+router.route('/').get(getPosts); // <-- THIS IS THE FIX
 router.route('/:id').get(getPostById);
+router.route('/tag/:tagName').get(getPostsByTag);
 router.route('/:id/comments').get(getPostComments).post(createPostComment);
 
-// --- PROTECTED ROUTES (Only a logged-in admin can access these) ---
-router.route('/').post(protect, createPost); // <-- Lock applied
-router.route('/:id').put(protect, updatePost).delete(protect, deletePost); // <-- Locks applied
+
+// --- PROTECTED "ADMIN" ROUTES ---
+// You MUST be logged in to create, update, or delete a post.
+router.route('/').post(protect, createPost);
+router.route('/:id').put(protect, updatePost).delete(protect, deletePost);
 
 module.exports = router;
