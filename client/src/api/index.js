@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // The base URL for your backend server.
-const API = axios.create({ baseURL: 'http://localhost:5000/api' });
+const API = axios.create({ baseURL: 'https://personal-blog-server-ysj4.onrender.com/api' });
 
 /* 
   This is a critical step for authentication.
