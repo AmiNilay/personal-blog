@@ -10,7 +10,7 @@ import CreatePostPage from './pages/CreatePostPage';
 import EditPostPage from './pages/EditPostPage';
 import TagResultsPage from './pages/TagResultsPage';
 import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage'; // <-- IMPORT IS ADDED
+// The RegisterPage import is now correctly removed
 
 // This component protects routes that only admins should see
 const PrivateRoute = ({ isAdmin, children }) => {
@@ -50,9 +50,6 @@ function App() {
             <Route path="/post/:id" element={<AnimatedPage><PostPage /></AnimatedPage>} />
             <Route path="/tag/:tagName" element={<AnimatedPage><TagResultsPage /></AnimatedPage>} />
             <Route path="/login" element={<AnimatedPage><LoginPage setIsAdmin={setIsAdmin} /></AnimatedPage>} />
-
-            {/* --- TEMPORARY ROUTE FOR ADMIN REGISTRATION --- */}
-            <Route path="/register-admin" element={<AnimatedPage><RegisterPage setIsAdmin={setIsAdmin} /></AnimatedPage>} />
 
             {/* Private Routes */}
             <Route path="/admin" element={<PrivateRoute isAdmin={isAdmin}><AnimatedPage><CreatePostPage /></AnimatedPage></PrivateRoute>} />
